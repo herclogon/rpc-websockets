@@ -213,12 +213,12 @@ export default (WebSocket) => class Client extends EventEmitter
             catch (error) { return }
 
             // check if any listeners are attached and forward event
-            if (message.notification && this.listeners(message.notification).length)
+            if (message.method && this.listeners(message.method).length)
             {
                 if (!message.params.length)
-                    return this.emit(message.notification)
+                    return this.emit(message.method)
 
-                const args = [message.notification]
+                const args = [message.method]
 
                 // using for-loop instead of unshift/spread because performance is better
                 for (let i = 0; i < message.params.length; i++)

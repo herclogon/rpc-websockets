@@ -893,9 +893,9 @@ describe("Server", function()
 
                         catch (error) { done(error) }
 
-                        if (message.notification)
+                        if (message.method)
                         {
-                            message.notification.should.equal("newMail")
+                            message.method.should.equal("newMail")
 
                             ws.close()
                             done()
@@ -929,9 +929,9 @@ describe("Server", function()
 
                         catch (error) { done(error) }
 
-                        if (message.notification)
+                        if (message.method)
                         {
-                            message.notification.should.equal("updatedNews")
+                            message.method.should.equal("updatedNews")
                             message.params[0].should.equal("fox")
 
                             ws.close()
@@ -966,9 +966,9 @@ describe("Server", function()
 
                         catch (error) { done(error) }
 
-                        if (message.notification)
+                        if (message.method)
                         {
-                            message.notification.should.equal("updatedNews")
+                            message.method.should.equal("updatedNews")
                             expect(message.params).to.deep.equal(["fox", "mtv", "eurosport"])
 
                             ws.close()

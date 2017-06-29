@@ -342,10 +342,10 @@ exports.default = function (WebSocket) {
                     }
 
                     // check if any listeners are attached and forward event
-                    if (message.notification && _this4.listeners(message.notification).length) {
-                        if (!message.params.length) return _this4.emit(message.notification);
+                    if (message.method && _this4.listeners(message.method).length) {
+                        if (!message.params.length) return _this4.emit(message.method);
 
-                        var args = [message.notification];
+                        var args = [message.method];
 
                         // using for-loop instead of unshift/spread because performance is better
                         for (var i = 0; i < message.params.length; i++) {

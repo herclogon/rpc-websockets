@@ -244,7 +244,7 @@ var Server = function (_EventEmitter) {
                         var socket_id = _step2.value;
 
                         _this2.namespaces[ns].clients.get(socket_id).send((0, _stringify2.default)({
-                            notification: name,
+                            method: name,
                             params: params || null
                         }));
                     }
@@ -325,7 +325,7 @@ var Server = function (_EventEmitter) {
 
                     for (var i = 0, id; id = socket_ids[i]; ++i) {
                         self.namespaces[name].clients.get(id).send((0, _stringify2.default)({
-                            notification: event,
+                            method: event,
                             params: params || []
                         }));
                     }
